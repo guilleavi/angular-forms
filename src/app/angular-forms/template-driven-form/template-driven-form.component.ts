@@ -8,6 +8,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class TemplateDrivenFormComponent implements OnInit {
 
+  genders: string[] = ['Female', 'Male', 'Other'];
+
   constructor() { }
 
   ngOnInit() {

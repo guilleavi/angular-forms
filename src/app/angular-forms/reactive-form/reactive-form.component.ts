@@ -8,6 +8,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class ReactiveFormComponent implements OnInit {
 
+  genders: string[] = ['Female', 'Male', 'Other'];
+
   constructor() { }
 
   ngOnInit() {
