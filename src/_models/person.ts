@@ -1,7 +1,12 @@
-export interface Person {
-  id: number;
-  firstName: string;
-  lastName: string;
-  age?: number;
-  gender: string;
+export class Person {
+
+  constructor(
+    public id: number,
+    public firstName: string,
+    public lastName: string,
+    public gender: string,
+    public age?: number
+  ) {
+  }
+
 }

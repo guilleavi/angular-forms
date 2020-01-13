@@ -1,22 +1,57 @@
-<form>
+<form #personForm="ngForm"
+      (ngSubmit)="onSubmit()">
   <h1>Template-driven Form</h1>
   <div class="form-group">
-    <label for="first-name">Firstname</label>
-    <input type="text" class="form-control" id="first-name" required>
+    <label for="first-name">FirstName</label>
+    <input type="text"
+           class="form-control"
+           id="first-name"
+           name="firstName"
+           [(ngModel)]="model.firstName"
+           #firstName="ngModel"
+           required>
+    <div [hidden]="firstName.valid || firstName.pristine"
+         class="alert alert-danger">
+      FirstName is required
+    </div>
   </div>
   <div class="form-group">
-    <label for="last-name">Lastname</label>
-    <input type="text" class="form-control" id="last-name" required>
+    <label for="last-name">LastName</label>
+    <input type="text"
+           class="form-control"
+           id="last-name"
+           name="lastName"
+           [(ngModel)]="model.lastName"
+           #lastName="ngModel"
+           required>
+    <div [hidden]="lastName.valid || lastName.pristine"
+         class="alert alert-danger">
+      LastName is required
+    </div>
   </div>
   <div class="form-group">
     <label for="age">Age</label>
-    <input type="text" class="form-control" id="age">
+    <input type="text"
+           class="form-control"
+           id="age"
+           name="age"
+           [(ngModel)]="model.age">
   </div>
   <div class="form-group">
     <label for="gender">Gender</label>
-    <select class="form-control" id="gender" required>
-      <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+    <select class="form-control"
+            id="gender"
+            name="gender"
+            [(ngModel)]="model.gender"
+            required>
+      <option *ngFor="let gender of genders"
+              [value]="gender">{{gender}}</option>
     </select>
   </div>
-  <button type="submit" class="btn btn-success">Submit</button>
+  <button type="submit"
+          class="btn btn-success"
+          [disabled]="!personForm.form.valid">Submit</button>
+  <button type="button"
+          class="btn btn-default"
+          (click)="newPerson(); personForm.reset()">New Person</button>
 </form>
