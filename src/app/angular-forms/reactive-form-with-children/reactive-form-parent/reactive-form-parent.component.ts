@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form-parent',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReactiveFormParentComponent implements OnInit {
 
-  constructor() { }
+  profileForm = this.fb.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    street: ['', Validators.required],
+    city: ['', Validators.required],
+    state: ['', Validators.required],
+  });
+
+  constructor(
+    private fb: FormBuilder,
+  ) { }
 
   ngOnInit() {
   }
